@@ -17,6 +17,9 @@ class Reservas
 
     public function ejecutar(string $accion):string{
         [$comando, $nombre, $numero] = $this->obtenerParametros($accion);
+        if(array_key_exists($nombre, $this->reservas)){
+            return "La reserva ya existe";
+        }
         if($comando === self::COMANDO_RESERVAR){
             return $this->reservar($nombre, $numero);
         }
