@@ -9,6 +9,7 @@ class Reservas
     const string COMANDO_RESERVAR = "reservar";
 
     const string MENSAJE_RESERVA_NUMERO_POSTIIVO = "El numero de reserva debe ser un numero positivo";
+    const string MENSAJE_RESERVA_YA_EXISTENTE = "La reserva ya existe";
 
 
     public function __construct(){
@@ -17,9 +18,6 @@ class Reservas
 
     public function ejecutar(string $accion):string{
         [$comando, $nombre, $numero] = $this->obtenerParametros($accion);
-        if(array_key_exists($nombre, $this->reservas)){
-            return "La reserva ya existe";
-        }
         if($comando === self::COMANDO_RESERVAR){
             return $this->reservar($nombre, $numero);
         }
@@ -41,6 +39,9 @@ class Reservas
     private function reservar(string $nombre, int $numero):string{
         if($numero < 0){
             return self::MENSAJE_RESERVA_NUMERO_POSTIIVO;
+        }
+        if(array_key_exists($nombre, $this->reservas)){
+            return self::MENSAJE_RESERVA_YA_EXISTENTE;
         }
         $this->reservas[$nombre] = $numero;
         return $this->listaReservas();
