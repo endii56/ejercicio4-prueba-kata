@@ -22,6 +22,9 @@ class Reservas
         if($comando === self::COMANDO_RESERVAR){
             return $this->reservar($nombre, $numero);
         }
+        if(!array_key_exists($nombre, $this->reservas)){
+            return "La reserva seleccionada no existe";
+        }
         if($comando === self::COMANDO_CANCELAR){
             $this->cancelar($nombre);
         }
