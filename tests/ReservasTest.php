@@ -92,4 +92,17 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("ana x4, paco x4", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testLasReservasDebenEstarOrdenadasAlfabeticamente():void
+    {
+        $controlador = new Reservas();
+
+        $controlador->ejecutar("reservar paco 4");
+        $respuesta = $controlador->ejecutar("reservar ana 4");
+
+        $this->assertEquals("ana x4, paco x4", $respuesta);
+    }
 }
