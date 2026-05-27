@@ -53,4 +53,16 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("paco x4", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testRecibirNumeroNegativoMensajeError():void
+    {
+        $controlador = new Reservas();
+
+        $respuesta = $controlador->ejecutar("reservar paco -2");
+
+        $this->assertEquals("El numero de reserva debe ser un numero positivo", $respuesta);
+    }
 }
