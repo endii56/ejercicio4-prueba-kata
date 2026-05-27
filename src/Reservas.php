@@ -8,17 +8,17 @@ class Reservas
 
     const string COMANDO_RESERVAR = "reservar";
 
+    const string MENSAJE_RESERVA_NUMERO_POSTIIVO = "El numero de reserva debe ser un numero positivo";
+
+
     public function __construct(){
         $this->reservas = [];
     }
 
     public function ejecutar(string $accion):string{
         [$comando, $nombre, $numero] = $this->obtenerParametros($accion);
-        if($numero < 0){
-            return "El numero de reserva debe ser un numero positivo";
-        }
         if($comando === self::COMANDO_RESERVAR){
-            $this->reservar($nombre, $numero);
+            return $this->reservar($nombre, $numero);
         }
         return $this->listaReservas();
     }
@@ -35,7 +35,11 @@ class Reservas
         }
         return implode(", ", $devolucionReservas);
     }
-    private function reservar(string $nombre, int $numero):void{
+    private function reservar(string $nombre, int $numero):string{
+        if($numero < 0){
+            return self::MENSAJE_RESERVA_NUMERO_POSTIIVO;
+        }
         $this->reservas[$nombre] = $numero;
+        return $this->listaReservas();
     }
 }
