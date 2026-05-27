@@ -79,4 +79,17 @@ class ReservasTest extends TestCase
         $this->assertEquals("La reserva ya existe", $respuesta);
 
     }
+
+    /**
+     * @test
+     */
+    public function testRealizarDosReservas():void
+    {
+        $controlador = new Reservas();
+
+        $controlador->ejecutar("reservar ana 4");
+        $respuesta = $controlador->ejecutar("reservar paco 4");
+
+        $this->assertEquals("ana x4, paco x4", $respuesta);
+    }
 }
