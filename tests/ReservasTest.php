@@ -221,4 +221,18 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("La reserva ya existe", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testTrasVaciarSePuedeContinuarReservando():void
+    {
+        $controlador = new Reservas();
+
+        $controlador->ejecutar("reservar paco 4");
+        $controlador->ejecutar("vaciar");
+        $respuesta = $controlador->ejecutar("reservar ana 7");
+
+        $this->assertEquals("ana x7", $respuesta);
+    }
 }
