@@ -9,18 +9,6 @@ class ReservasTest extends TestCase
     /**
      * @test
      */
-    public function testHolaMundo():void
-    {
-        $controlador = new Reservas();
-
-        $respuesta = $controlador->holaMundo();
-
-        $this->assertEquals("Hola mundo", $respuesta);
-    }
-
-    /**
-     * @test
-     */
     public function testCrearReservasVacio():void
     {
         $controlador = new Reservas();

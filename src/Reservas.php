@@ -9,9 +9,6 @@ class Reservas
     public function __construct(){
         $this->reservas = [];
     }
-    public function holaMundo():string{
-        return "Hola mundo";
-    }
 
     public function ejecutar(string $accion):string{
         if(empty($this->reservas)){
