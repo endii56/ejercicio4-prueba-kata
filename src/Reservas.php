@@ -31,6 +31,7 @@ class Reservas
 
     private function listaReservas():string{
         $devolucionReservas = [];
+        ksort($this->reservas);
         foreach($this->reservas as $nombre => $numero){
             $devolucionReservas[] = "$nombre x$numero";
         }
