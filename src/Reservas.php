@@ -8,6 +8,7 @@ class Reservas
 
     const string COMANDO_RESERVAR = "reservar";
     const string COMANDO_CANCELAR = "cancelar";
+    const string COMANDO_VACIAR = "vaciar";
 
     const string MENSAJE_RESERVA_NUMERO_POSTIIVO = "El numero de reserva debe ser un numero positivo";
     const string MENSAJE_RESERVA_YA_EXISTENTE = "La reserva ya existe";
@@ -27,16 +28,22 @@ class Reservas
         if($comando === self::COMANDO_CANCELAR){
             return $this->cancelar($nombre);
         }
-        if($comando === "vaciar"){
-            $this->reservas = [];
+        if($comando === self::COMANDO_VACIAR){
+            $this->vaciar();
         }
         return $this->listaReservas();
     }
 
     private function obtenerParametros(string $accion):array{
         $separado = explode(" ", $accion);
+        if(isset($separado[1])){
+            $nombre = strtolower($separado[1]);
+        }
+        else{
+            $nombre = "";
+        }
         $numero = $separado[2] ?? "";
-        return [strtolower($separado[0]), strtolower($separado[1]), $numero];
+        return [strtolower($separado[0]), $nombre, $numero];
     }
 
     private function listaReservas():string{
@@ -64,5 +71,10 @@ class Reservas
         }
         unset($this->reservas[$nombre]);
         return $this->listaReservas();
+    }
+
+    private function vaciar():null{
+        $this->reservas = [];
+        return null;
     }
 }
