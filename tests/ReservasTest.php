@@ -41,4 +41,16 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("paco x4", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testRecibirComandoReservarEnMayusculas():void
+    {
+        $controlador = new Reservas();
+
+        $respuesta = $controlador->ejecutar("RESERVAR paco 4");
+
+        $this->assertEquals("paco x4", $respuesta);
+    }
 }
