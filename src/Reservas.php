@@ -27,6 +27,9 @@ class Reservas
         if($comando === self::COMANDO_CANCELAR){
             return $this->cancelar($nombre);
         }
+        if($comando === "vaciar"){
+            $this->reservas = [];
+        }
         return $this->listaReservas();
     }
 
