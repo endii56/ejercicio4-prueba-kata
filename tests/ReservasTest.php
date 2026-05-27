@@ -27,6 +27,6 @@ class ReservasTest extends TestCase
 
         $respuesta = $controlador->ejecutar("reservar paco 4");
 
-        $this->assertEquals("paco 4", $respuesta);
+        $this->assertEquals("paco x4", $respuesta);
     }
 }
