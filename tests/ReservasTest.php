@@ -65,4 +65,18 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("El numero de reserva debe ser un numero positivo", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testReservarCuandoLaReservaConEseNombreYaExiste():void
+    {
+        $controlador = new Reservas();
+
+        $controlador->ejecutar("reservar paco 4");
+        $respuesta = $controlador->ejecutar("reservar paco 5");
+
+        $this->assertEquals("La reserva ya existe", $respuesta);
+
+    }
 }
