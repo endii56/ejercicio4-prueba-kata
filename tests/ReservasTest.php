@@ -166,7 +166,7 @@ class ReservasTest extends TestCase
         $controlador = new Reservas();
 
         $controlador->ejecutar("reservar paco 4");
-        $respuesta = $controlador->ejecutar("cancelar paco");
+        $respuesta = $controlador->ejecutar("CANCELAR paco");
 
         $this->assertEquals("", $respuesta);
     }

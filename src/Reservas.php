@@ -6,13 +6,13 @@ class Reservas
 {
     private array $reservas;
 
-    const string COMANDO_RESERVAR = "reservar";
-    const string COMANDO_CANCELAR = "cancelar";
-    const string COMANDO_VACIAR = "vaciar";
+    private const string COMANDO_RESERVAR = "reservar";
+    private const string COMANDO_CANCELAR = "cancelar";
+    private const string COMANDO_VACIAR = "vaciar";
 
-    const string MENSAJE_RESERVA_NUMERO_POSTIIVO = "El numero de reserva debe ser un numero positivo";
-    const string MENSAJE_RESERVA_YA_EXISTENTE = "La reserva ya existe";
-    const string MENSAJE_CANCELAR_RESERVA_NO_EXISTENTE = "La reserva seleccionada no existe";
+    private const string MENSAJE_RESERVA_NUMERO_POSTIIVO = "El numero de reserva debe ser un numero positivo";
+    private const string MENSAJE_RESERVA_YA_EXISTENTE = "La reserva ya existe";
+    private const string MENSAJE_CANCELAR_RESERVA_NO_EXISTENTE = "La reserva seleccionada no existe";
 
 
 
@@ -73,8 +73,7 @@ class Reservas
         return $this->listaReservas();
     }
 
-    private function vaciar():null{
+    private function vaciar():void{
         $this->reservas = [];
-        return null;
     }
 }
