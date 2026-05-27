@@ -18,4 +18,15 @@ class ReservasTest extends TestCase
         $this->assertEquals("", $respuesta);
     }
 
+    /**
+     * @test
+     */
+    public function testCrearUnaReserva():void
+    {
+        $controlador = new Reservas();
+
+        $respuesta = $controlador->ejecutar("reservar paco 4");
+
+        $this->assertEquals("paco 4", $respuesta);
+    }
 }
