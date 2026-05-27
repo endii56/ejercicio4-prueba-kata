@@ -14,6 +14,9 @@ class Reservas
 
     public function ejecutar(string $accion):string{
         [$comando, $nombre, $numero] = $this->obtenerParametros($accion);
+        if($numero < 0){
+            return "El numero de reserva debe ser un numero positivo";
+        }
         if($comando === self::COMANDO_RESERVAR){
             $this->reservar($nombre, $numero);
         }
