@@ -22,7 +22,7 @@ class Reservas
 
     private function obtenerParametros(string $accion):array{
         $separado = explode(" ", $accion);
-        return [$separado[0], strtolower($separado[1]), $separado[2]];
+        return [strtolower($separado[0]), strtolower($separado[1]), $separado[2]];
     }
 
     private function listaReservas():string{
