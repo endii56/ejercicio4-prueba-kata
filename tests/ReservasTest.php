@@ -144,4 +144,17 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("La reserva seleccionada no existe", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testCancelarUnaReservaExistenteEnMayusculas():void
+    {
+        $controlador = new Reservas();
+
+        $controlador->ejecutar("reservar paco 4");
+        $respuesta = $controlador->ejecutar("cancelar PACO");
+
+        $this->assertEquals("", $respuesta);
+    }
 }
