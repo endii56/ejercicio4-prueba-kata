@@ -105,4 +105,18 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("ana x4, paco x4", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testTrasReservarErroneamenteSePuedeSeguirReservando():void
+    {
+        $controlador = new Reservas();
+
+        $controlador->ejecutar("reservar paco 4");
+        $controlador->ejecutar("reservar paco 6");
+        $respuesta = $controlador->ejecutar("reservar zoila 4");
+
+        $this->assertEquals("paco x4, zoila x4", $respuesta);
+    }
 }
