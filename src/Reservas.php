@@ -21,6 +21,9 @@ class Reservas
         if($comando === self::COMANDO_RESERVAR){
             return $this->reservar($nombre, $numero);
         }
+        if($comando === "cancelar"){
+            unset($this->reservas[$nombre]);
+        }
         return $this->listaReservas();
     }
 
