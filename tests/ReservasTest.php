@@ -157,4 +157,17 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testComandoCancelarEnMayusculasDebeTratarseIgualQueEnMinusculas():void
+    {
+        $controlador = new Reservas();
+
+        $controlador->ejecutar("reservar paco 4");
+        $respuesta = $controlador->ejecutar("cancelar paco");
+
+        $this->assertEquals("", $respuesta);
+    }
 }
