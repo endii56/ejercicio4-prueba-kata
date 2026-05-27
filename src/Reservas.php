@@ -55,7 +55,7 @@ class Reservas
         return implode(", ", $devolucionReservas);
     }
     private function reservar(string $nombre, string $numero):string{
-        if((int)$numero < 0){
+        if((int)$numero <= 0){
             return self::MENSAJE_RESERVA_NUMERO_POSTIIVO;
         }
         if(array_key_exists($nombre, $this->reservas)){
