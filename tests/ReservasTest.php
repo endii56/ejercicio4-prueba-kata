@@ -196,4 +196,16 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testReservarCon0Personas():void
+    {
+        $controlador = new Reservas();
+
+        $respuesta = $controlador->ejecutar("reservar paco 0");
+
+        $this->assertEquals("El numero de reserva debe ser un numero positivo", $respuesta);
+    }
 }
