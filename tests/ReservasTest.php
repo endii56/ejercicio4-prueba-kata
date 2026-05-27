@@ -119,4 +119,17 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("paco x4, zoila x4", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testCancelarUnaReserva():void
+    {
+        $controlador = new Reservas();
+
+        $controlador->ejecutar("reservar paco 4");
+        $respuesta = $controlador->ejecutar("cancelar paco");
+
+        $this->assertEquals("", $respuesta);
+    }
 }
