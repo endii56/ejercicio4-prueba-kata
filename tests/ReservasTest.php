@@ -29,4 +29,16 @@ class ReservasTest extends TestCase
 
         $this->assertEquals("paco x4", $respuesta);
     }
+
+    /**
+     * @test
+     */
+    public function testCrearUnaReservaConMayusculasDebeAlmacenarseEnMinusculas():void
+    {
+        $controlador = new Reservas();
+
+        $respuesta = $controlador->ejecutar("reservar PACO 4");
+
+        $this->assertEquals("paco x4", $respuesta);
+    }
 }
